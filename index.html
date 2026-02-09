@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simply Favors PH 🧸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- LINK TO EXTERNAL CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Simply Favors PH 🧸</h1>
+  <p>Party Favors | Souvenirs | Gifts 💕</p>
+  <img src="images/icons/fblogo.png" alt="fblogo"><a href="https://www.facebook.com/Simplyfavorsph">Simplyfavorsph</a>
+
+</header>
+
+<section>
+  <h2>Our Bestsellers 🎁</h2>
+  <div class="products">
+
+    <div class="product">
+      <img src="wipes.jpg" alt="Keychain">
+      <h3> Wet Wipes</h3>
+      <p>Handy, travel-ready, and perfect for any celebration ✨</p>
+      <div class="price">$5</div>
+      <button onclick="addToCart('Rainbow Keychain', 5)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="bear.jpg" alt="Magnet">
+      <h3>Teddy Bears</h3>
+      <p>A classic fridge favorite</p>
+      <div class="price">$4</div>
+      <button onclick="addToCart('City Magnet', 4)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1503602642458-232111445657" alt="T-shirt">
+      <h3>Key Chains</h3>
+      <p>Soft cotton with local charm</p>
+      <div class="price">$18</div>
+      <button onclick="addToCart('Graphic T-Shirt', 18)">Add to Cart</button>
+    </div>
+
+  </div>
+</section>
+
+
+<section>
+  <h2>Your Cart 🛒</h2>
+  <div id="cart">
+    <div id="cartItems"></div>
+    <strong>Total: $<span id="total">0</span></strong>
+    <button class="checkout" onclick="checkout()">Order via WhatsApp 💬</button>
+  </div>
+</section>
+
+<footer>
+  © 2026 Sunny Souvenirs — Made with love 💖
+</footer>
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  total += price;
+  renderCart();
+}
+
+function renderCart() {
+  const cartItems = document.getElementById("cartItems");
+  cartItems.innerHTML = "";
+
+  cart.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `<span>${item.name}</span><span>$${item.price}</span>`;
+    cartItems.appendChild(div);
+  });
+
+  document.getElementById("total").innerText = total;
+}
+
+function checkout() {
+  let message = "Hello! I want to order:%0A";
+  cart.forEach(item => {
+    message += `- ${item.name} ($${item.price})%0A`;
+  });
+  message += `%0ATotal: $${total}`;
+
+  // 🔴 REPLACE WITH YOUR WHATSAPP NUMBER
+  window.open(`https://wa.me/1234567890?text=${message}`, "_blank");
+}
+</script>
+
+</body>
+</html>
