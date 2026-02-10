@@ -22,7 +22,7 @@ header {
   color: var(--cream);
   text-align: center;
   padding: 20px 3px;
-  background-image: url('bgbear.jpg');
+  background-image: url('images/products/bgbear.jpg');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -37,13 +37,6 @@ header p {
   font-size: 1.2rem;
   font-style: italic;
 }
-
-.fb_logo img {
-  width: 10px;
-  height: 10px;
-  object-fit: cover;
-}
-
 
 
 /* ===== SECTIONS ===== */
